@@ -1,0 +1,16 @@
+
+=============================
+EBM CREDIT SCORING SUMMARY
+=============================
+
+GINI – OOS:
+ - Baseline:  0.8812
+ - Optimized: 0.8804
+
+GINI – OOT:
+ - Baseline:  0.8824
+ - Optimized: 0.8815
+
+PSI (Train → OOT):
+{'INCOME': np.float64(0.0002820540584629136), 'CBAL': np.float64(0.0022477349187230104), 'RATIO_DTI': np.float64(0.0030549941944635157), 'RATIO_UTILIZATION': np.float64(0.00345128408971545)}
+
