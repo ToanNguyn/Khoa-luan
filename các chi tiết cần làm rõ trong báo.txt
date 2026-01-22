@@ -1,0 +1,55 @@
+1. các chi tiết cần làm rõ trong báo cáo khóa luận:
+- mức độ thông tin về data cần công bố: có cần => xem lại phân phối của các biến gen ra đã hợp lý chưa 
++ tạo 1 file excel, ghi lại tên, ý nghĩa, type, các giá trị, khoảng giá trị 
+giới tính bỏ O đi 
+
++ check xem phân phối vậy có hợp lý không
++ 
+- tại sao với kết quả hiện tại ebm lại cho ra kết quả tốt hơn là log reg 
+- cần phải so sánh gì (gini, kết quả xếp hạng, inference time, ...)
+- mức độ đồng bộ trong các bước làm để kết quả so sánh được đồng nhất: dataset, cách xử lý, ...
+
+2. các chi tiết cần sửa trong code 
+- gendata:
++ xác định lại xem có các biến gây leakage không (phân biệt các biến cho biết đã bad hiện tại => bỏ các biến obs đã bad sẫn hiện tại, giữ lại các feature đó ? ở file dqa hay eda ?) 
+
+- DQA:
++ DQA đã đầy đủ các các biến cho các tiêu chí chưa 
++ DQA có bị trung lặp với eda ở 2 model không 
+
+- ebm:
++ các bước preprocessing + feature engineering: 
+bỏ các biến leakage đã đúng chưa 
+đã đầy đủ các bước chưa 
+đã làm theo fit trên train, transform all chưa 
+các biến cần xử lý, hoặc để nguyên thì đã chính xác chưa 
+thêm feature psi vào preprocessing ở các biến 
+
++ cross validation 
+có nên áp dung cv cho baseline không 
+nếu áp dụng trong tối ưu (hoặc cả baseline) thì có thi có cần áp dụng cho log reg để cùng hệ quy chiếu không 
+
++ chưa chạy tối ưu, mới là baseline với lr = 1. Nếu chạy tối ưu, cần xác định được 
+subsampling để chạy tối ưu trên tập đó 
+các biến sử dụng để tìm tham số tối ưu 
+khoảng giá trị để chạy tối ưu
+
++ xem có cần quy định tất cả là monotonic không, hay vẫn cho phép phi tuyến (theo quy định firb)
+
++ chưa chạy ra kết quả xếp hạng 
+
+- log reg:
++ preprocessing:
+bỏ các biến leakage đã đúng chưa 
+đã đầy đủ các bước chưa 
+đã làm theo fit trên train, transform all chưa 
+các biến cần xử lý, hoặc để nguyên thì đã chính xác chưa 
+thêm feature psi vào preprocessing ở các biến 
+
++ ở các segment:
+nếu trong model cuối không có các biến để segment thì có sao không 
+bỏ đoạn ưu tiên giữ lại dti 
+trong danh sách các model hợp lệ, model cuối đã hợp lý chưa, đã phù hợp các tiêu chí: các biến đã có ý nghĩa về mặt kinh tế, hạn chế các biến nhập tay, dễ thay đổi chưa 
+
+- các markdown, chú thích sửa lại cho cẩn thận 
+- sửa lại tên data gen ra 
