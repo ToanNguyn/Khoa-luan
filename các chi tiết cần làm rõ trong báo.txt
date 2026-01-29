@@ -6,9 +6,7 @@
 
 2. các chi tiết cần sửa trong code 
 - ebm:
-+ cross validation 
-có nên áp dung cv cho baseline không 
-nếu áp dụng trong tối ưu (hoặc cả baseline) thì có thi có cần áp dụng cho log reg để cùng hệ quy chiếu không 
++ cross validation: có nên áp dung cv cho baseline không (ko)
 
 + chưa chạy tối ưu, mới là baseline với lr = 1. Nếu chạy tối ưu, cần xác định được 
 subsampling để chạy tối ưu trên tập đó 
@@ -22,3 +20,18 @@ nếu trong model cuối không có các biến để segment thì có sao khôn
 
 - các markdown, chú thích sửa lại cho cẩn thận 
 
+
+
+
+
+
+
+
+
+
+- có tunning cho logreg ko
+- nếu trong model cuối không có các biến để segment thì có sao không
+-  xem có cần quy định tất cả là monotonic không, hay vẫn cho phép phi tuyến, cate thì sao 
+Population Default Rate: lấy ở toàn bộ population  
+SDR: lấy trong tập train 
+sử dụng stratified: tách bad ở train và test cũng bằng nhau
